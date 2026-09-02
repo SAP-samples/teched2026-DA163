@@ -13,7 +13,7 @@ Please edit this file as it is the primary description file for your project. Yo
 
 ## Description
 
-This repository contains the material for the SAP TechEd 2026 session called **DA263 - SAP HANA Cloud: Advisors and automation**..  
+This repository contains the material for the SAP TechEd 2026 session called **DA163 - SAP HANA Cloud advisors and automation**.
 
 ## Overview
 
