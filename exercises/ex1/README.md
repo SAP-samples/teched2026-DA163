@@ -114,14 +114,14 @@ After completing these steps you will have successfully generated five partition
 2. **Access HANA Cloud Central** (Skip this step if you already have it opened.)
 - Click **Instances and Subscriptions** in the leftmost navigation panel.
 - Click **SAP HANA Cloud** in the Application list to open HANA Cloud Central.
-<br>![](/exercises/ex3/images/01_00.png)
+<br>![](/exercises/ex1/images/01_00.png)
 - In HANA Cloud Central, you can see your HANA Cloud instance. Click the instance and open **Overview** page.
-<br>![](/exercises/ex3/images/01_01.png)
+<br>![](/exercises/ex1/images/01_01.png)
 
 
 3. **Switch On the Partition Advisor**
 - Choose **Partition** from **Recommendations** card.
-<br>![](/exercises/ex3/images/02_01.png)
+<br>![](/exercises/ex1/images/02_01.png)
 
 - Click **Switch On**.
 <br>![](/exercises/ex1/images/02_02.png)
