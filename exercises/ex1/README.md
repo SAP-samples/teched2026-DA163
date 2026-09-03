@@ -1,44 +1,311 @@
-# Exercise 1 - Exercise 1 Description
+# Exercise 1 - Partition Advisor
 
-In this exercise, we will create...
+In this exercise, you will generate partitioning recommendations for a specific schema and apply them using **Recommendation App** in **HANA Cloud Central**. You will then verify that all recommendations have been applied correctly.
 
-## Exercise 1.1 Sub Exercise 1 Description
+## What is Partition Advisor?
 
-After completing these steps you will have created...
+Partitioning divides a table so that each partition stores a distinct subset of rows. Beyond overcoming the 2-billion-record limit per partition, well-designed partitions enable several performance benefits: load balancing across hosts, parallel query execution, partition pruning (both static and dynamic) to skip irrelevant data scans, faster and more targeted delta merges, and improved compression ratios.
 
-1. Click here.
-<br>![](/exercises/ex1/images/01_01_0010.png)
+However, excessive fragmentation into small partitions introduces overhead. To address this, the **Partition Advisor** analyzes table sizes, data distribution patterns, and workload characteristics to identify tables or partitions exceeding configurable row-count thresholds. It then recommends optimized partitioning specifications that maximize performance while minimizing maintenance costs and ensuring each partition remains within size limits. The partitioning decisions focus on the following points: 
+- choosing an effective partition key based on access patterns and cardinality
+- choosing the right partitioning method (HASH or RANGE, or multilevel partitioning)
 
-2.	Insert this line of code.
-```abap
-response->set_text( |Hello World! | ). 
+The Partition Advisor also offers an **apply function** that allows users to easily implement the partitioning recommendations.
+
+## Dataset Information and Preparation
+
+For this hands-on exercise, **five exemplifying scenarios** have been designed. You can find the table information for these five scenarios below.
+- **T_SCENARIO_1**: Full unpartitioned table with primary key
+- **T_SCENARIO_2**: Unpartitioned table with high data usage and complex query patterns
+- **T_SCENARIO_3**: Unpartitioned time-based table with high access patterns
+- **T_SCENARIO_4**: Range partitioned table with a full 'OTHERS' partition
+- **T_SCENARIO_5**: Hash-hash partitioned table with some full partitions
+
+The minimum rows for repartitioning, repartitioning threshold, and initial partition values were set to artificially low levels to facilitate demonstration scenarios with minimal data and reduced workload. Refer to the [table placement rule](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/table-placement-rules?locale=en-US) for detailed parameter guide.
+
+**T_SCENARIO_1**, **T_SCENARIO_4**, and **T_SCENARIO_5** have been already set up in your instance. You need to create the other two tables, **T_SCENARIO_2** and **T_SCENARIO_3** before starting the Exercise 1.1.
+
+Please copy the following script and run it in the **SQL Console** in HANA Cloud Central as instructed at the beginning of the workshop. You will learn more about each table in the Exercise 1.2.
+
+**SQL Script**
+```SQL
+-- T_SCENARIO_2 script
+CONNECT DBADMIN PASSWORD Welcome1;
+SET SCHEMA PA_DEMO;
+
+ALTER SYSTEM ALTER TABLE PLACEMENT (SCHEMA_NAME=>'PA_DEMO', TABLE_NAME=>'T_SCENARIO_2')
+SET (MIN_ROWS_FOR_PARTITIONING=>100, REPARTITIONING_THRESHOLD=>10000, INITIAL_PARTITIONS=>3);
+
+CREATE COLUMN TABLE T_SCENARIO_2(
+        EVENT_ID INTEGER,
+        CUSTOMER_ID INTEGER NOT NULL,
+        EVENT_TYPE VARCHAR(20) NOT NULL,
+        EVENT_TIME DATE);
+
+INSERT INTO T_SCENARIO_2
+        SELECT
+            s.ELEMENT_NUMBER AS EVENT_ID,
+            MOD(s.ELEMENT_NUMBER, 200) AS CUSTOMER_ID,
+            CASE
+                WHEN MOD(s.ELEMENT_NUMBER, 10) < 5 THEN 'LOGIN'
+                WHEN MOD(s.ELEMENT_NUMBER, 10) < 7 THEN 'PURCHASE'
+                WHEN MOD(s.ELEMENT_NUMBER, 10) < 8 THEN 'SUBSCRIBE'
+                WHEN MOD(s.ELEMENT_NUMBER, 10) = 8 THEN 'LOGOUT'
+                ELSE 'DELETE'
+            END AS EVENT_TYPE,
+            ADD_DAYS(DATE'2023-01-01', MOD(s.ELEMENT_NUMBER, 180)) AS EVENT_TIME
+        FROM SERIES_GENERATE_INTEGER(1, 1, 300) s;
+
+DO
+BEGIN
+  DECLARE i INT = 0;
+  WHILE :i < 100 DO
+    EXECUTE IMMEDIATE '
+      SELECT * FROM T_SCENARIO_2
+      WHERE EVENT_ID > 9 OR EVENT_TYPE = ''LOGIN''
+    ';
+    i = :i + 1;
+  END WHILE;
+END;
+
+-- T_SCENARIO_3 script
+ALTER SYSTEM ALTER TABLE PLACEMENT (SCHEMA_NAME=>'PA_DEMO', TABLE_NAME=>'T_SCENARIO_3')
+SET (MIN_ROWS_FOR_PARTITIONING=>100, REPARTITIONING_THRESHOLD=>10000, INITIAL_PARTITIONS=>3);
+
+CREATE COLUMN TABLE T_SCENARIO_3 (
+    EVENT_ID INTEGER NOT NULL,
+    EVENT_DATE DATE NOT NULL,
+    DESCRIPTION VARCHAR(50) NOT NULL
+);
+
+INSERT INTO T_SCENARIO_3
+SELECT
+    ELEMENT_NUMBER,
+    ADD_DAYS(DATE'2019-01-01', MOD(ELEMENT_NUMBER, 2190)),
+    'Event ' || ELEMENT_NUMBER
+FROM SERIES_GENERATE_INTEGER(1, 1, 3600);
+DO
+BEGIN
+  DECLARE i INT = 0;
+  WHILE :i < 100 DO
+    EXECUTE IMMEDIATE '
+      SELECT * FROM T_SCENARIO_3
+      WHERE EVENT_DATE > DATE''2023-01-01''
+    ';
+    i = :i + 1;
+  END WHILE;
+END;
 ```
 
+Now you are ready with all the datasets. 
+Move on to the Exercise 1.1.
 
 
-## Exercise 1.2 Sub Exercise 2 Description
+## Exercise 1.1 Generate partitioning recommendations with Partition Advisor
 
-After completing these steps you will have...
+After completing these steps you will have successfully generated five partitioning recommendations for your HANA Cloud instance in **Recommendation App**.
 
-1.	Enter this code.
-```abap
-DATA(lt_params) = request->get_form_fields(  ).
-READ TABLE lt_params REFERENCE INTO DATA(lr_params) WITH KEY name = 'cmd'.
-  IF sy-subrc <> 0.
-    response->set_status( i_code = 400
-                     i_reason = 'Bad request').
-    RETURN.
-  ENDIF.
+1. **Open SAP BTP Cockpit** (Skip this step if you already have it opened.)
+- Navigate to [SAP BTP Cockpit](https://emea.cockpit.btp.cloud.sap/cockpit?idp=tdct3ched1.accounts.ondemand.com#/globalaccount/4c772782-0751-42ee-93c3-897452fdcb63/subaccount/27eb38bc-fdf9-4055-9a8d-6d30ea5f2b8f/service-instances).
+- Login with your **_User Name_** and **_Password_**.
+    - User Name: **_da263_0xx@education.cloud.sap_** (xx: your index)
+    - Password: Provided in the PPT slide
 
+2. **Access HANA Cloud Central** (Skip this step if you already have it opened.)
+- Click **Instances and Subscriptions** in the leftmost navigation panel.
+- Click **SAP HANA Cloud** in the Application list to open HANA Cloud Central.
+<br>![](/exercises/ex3/images/01_00.png)
+- In HANA Cloud Central, you can see your HANA Cloud instance. Click the instance and open **Overview** page.
+<br>![](/exercises/ex3/images/01_01.png)
+
+
+3. **Switch On the Partition Advisor**
+- Choose **Partition** from **Recommendations** card.
+<br>![](/exercises/ex3/images/02_01.png)
+
+- Click **Switch On**.
+<br>![](/exercises/ex1/images/02_02.png)
+
+- You need a dedicated **Partition Advisor User** to use the Partition Advisor. You can find more details about the **Partition Advisor User** in the [Getting Started](exercises/ex0/) section. The **Partition Advisor User** has been already created for this exercise. Add the following credential and click **Save**.
+
+  - Username: _**PAUSER**_
+  - Password: _**Partitionadvisor1**_
+<br>![](/exercises/ex1/images/02_03.png)
+
+
+4. **Generate Recommendations**
+- The Partition Advisor is **On** and you can view the **Username**. Click **Generate Recommendations**.
+<br>![](/exercises/ex1/images/02_04.png)
+
+- Click **Add** to select target object(s) that you want the advisor to analyze against. 
+<br>![](/exercises/ex1/images/02_05.png)
+
+- You can choose **Object Type** between **Schema** or **Table**. Choose **Table** here and click **Schema** field to show a list of schema that the **Partition Advisor User** can view.
+<br>![](/exercises/ex1/images/02_06.png)
+
+- Select the schema, named **PA_DEMO**. Then you can view the 5 tables in the schema. Click **Add**.
+<br>![](/exercises/ex1/images/02_07.png)
+<br>![](/exercises/ex1/images/02_08.png)
+
+- The target objects are added in the list. Click **Generate Recommendation**.
+<br>![](/exercises/ex1/images/02_09.png)
+
+- The advisor is generating recommendations for the selected objects.
+<br>![](/exercises/ex1/images/02_10.png)
+
+- Click **Refresh** icon on the top right side to see the progress updated.
+<br>![](/exercises/ex1/images/02_11.png)
+
+- The recommendations have been generated and the **Status** has changed to **Executed**. Go to **Recommendations** tab to view the available recommendations.
+<br>![](/exercises/ex1/images/02_12.png)
+
+- Here you can find the list of available recommendations for all 5 scenarios.
+<br>![](/exercises/ex1/images/02_13.png)
+
+
+## Exercise 1.2 Apply partitioning recommendations from Recommendation App
+
+After completing these steps, you will have successfully applied all partitioning recommendations from the Recommendation App and validated that the partitioning actions have been implemented as suggested.
+
+### Scenario 1: Full unpartitioned table with primary key
+
+This scenario has set aggressive partitioning parameters for the table:
+- MIN_ROWS_FOR PARTITIONING: 100
+- REPARTITIONING_THRESHOLD: 100 (very low threshold)
+- INITIAL_PARTITIONS: 3
+
+1. **Review recommendation details for the table T_SCENARIO_1**
+<br>![](/exercises/ex1/images/02_14a.png)
+<br>![](/exercises/ex1/images/02_14b.png)
+<br>![](/exercises/ex1/images/02_14c.png)
+The advisor recommends **hash partitioning** on the primary key, **ID**, to resolve the full table issue.
+
+2. **Check current partitioning status** 
+- Before applying the recommendation, verify the current partitioning state of table 'T_SCENARIO_1'.
+
+- Open the **SQL Console** for your instance.
+<br>![](/exercises/ex1/images/02_15.png)
+
+- Execute the following SQL script to check the current partitioning.
+```SQL
+SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME='T_SCENARIO_1';
+```
+- The query returns no results, confirming that the table is currently unpartitioned.
+<br>![](/exercises/ex1/images/02_16.png)
+
+3. **Apply the recommendation**
+- Click **Apply** in the recommendation detail page.
+<br>![](/exercises/ex1/images/02_17.png)
+- You can monitor the advisor applying the recommendation in the **Processes** tab.
+<br>![](/exercises/ex1/images/02_18.png)
+
+4. **Validate partitioning implementation**
+- Re-run the same SQL script to confirm the partitioning has been applied.
+<br>![](/exercises/ex1/images/02_19.png)
+The table has been successfully hash partitioned into 12 partitions on the primary key to distribute data evenly across multiple partitions and improve query performance by avoiding full table scans.
+
+
+### Scenario 2: Unpartitioned table with high data usage and complex query patterns
+
+This scenario has simulated heavy query load by executing the same query 100 times, creating a usage pattern where a specific column is frequently queried.
+
+1. **Review recommendation details for the table T_SCENARIO_2**
+<br>![](/exercises/ex1/images/02_20.png)
+The advisor identifies the 'EVENT_TYPE' column as the most frequently queried column and recommends hash partitioning on this column for optimal performance.
+
+2. **Check current partitioning status** 
+- Verify the current partitioning state using the same approach as Scenario 1.
+
+- Make sure to be connected with DBADMIN.
+
+- Run the following SQL script to check that the table is unpartitioned.
+```SQL
+SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME='T_SCENARIO_2';
 ```
 
-2.	Click here.
-<br>![](/exercises/ex1/images/01_02_0010.png)
+3. **Apply the recommendation**
+- Click **Apply** in the recommendation detail page.
+<br>![](/exercises/ex1/images/02_21.png)
 
+4. **Validate partitioning implementation**
+- Re-run the same SQL script to confirm the partitioning has been applied.
+<br>![](/exercises/ex1/images/02_22.png)
+The table has been successfully hash-partitioned into 3 partitions to improve query performance by distributing data based on the most-accessed column.
+
+### Scenario 3: Unpartitioned time-based table with high access patterns
+
+This scenario has simulated a time-based table with data spanning from 2019 to 2025, creating a historical dataset where recent "hot" data (2023 onwards) is frequently accessed, while older data (2019-2022) remains relatively unused.
+
+1. **Review recommendation details for the table T_SCENARIO_3**
+<br>![](/exercises/ex1/images/02_23.png)
+The advisor suggests range partitioning to isolate the hot data (2023 onwards) in a single partition.
+
+2. **Check current partitioning status** 
+- Verify the current partitioning state using the same approach as Scenario 1.
+
+- Run the following SQL script to check that the table is unpartitioned.
+```SQL
+SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME='T_SCENARIO_3';
+```
+
+3. **Apply the recommendation**
+- Click **Apply** in the recommendation detail page.
+
+4. **Validate partitioning implementation**
+- Re-run the same SQL script to confirm the partitioning has been applied.
+<br>![](/exercises/ex1/images/02_24.png)
+The table has been successfully range-partitioned into 3 partitions, isolating frequently accessed recent data in a dedicated partition and improving query performance by avoiding scans of older, unused data.
+
+
+### Scenario 4 removed so far due to import from S3 bucket 
+
+(Images  02_25.png, 02_26.png, 02_26.png_a, 02_26.png_b, 02_26.png_c, 02_27.png) 
+
+
+### Scenario 5: Hash-hash partitioned table with some full partitions
+
+This scenario has created an imbalanced multi-level hash partitioned table. The hash  partitioning on 'REGION' doesn't distribute data evenly, causing some partitions to become full while others remain relatively empty.
+
+1. **Review recommendation details for the table T_SCENARIO_5**
+<br>![](/exercises/ex1/images/02_28_a.png)
+<br>![](/exercises/ex1/images/02_28_b.png)
+The advisor proposes to increase the number of leaf partitions while keeping the partitioning hierarchy balanced.
+
+2. **Check current partitioning status** 
+- Check the current partitioning state of table 'T_SCENARIO_5' by repeating the same steps from Scenario 1.
+```SQL
+SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME='T_SCENARIO_5';
+```
+- The table currently has a two-level partitioning scheme: the first level is hash partitioned with the 'REGION' value into 2 partitions, and the second level is hash subpartitioned with the 'CUSTOMER_ID' into 2 partitions.
+<br>![](/exercises/ex1/images/02_29.png)
+
+3. **Apply the recommendation**
+- Click **Apply** in the recommendation detail page.
+
+4. **Validate partitioning implementation**
+- Re-run the same SQL script to confirm the partitioning has been applied.
+<br>![](/exercises/ex1/images/02_30.png)
+The table now has 16 leaf partitions to achieve better data distribution while maintaining partitioning hierarchy balance.
+
+## Clean-up
+
+**Switch off Partition Advisor**
+
+- Go to **Advisors** tab in the Recommendation App.
+
+- Click the three dots on the top right side and select **Switch Off**.
+
+- Choose **Remove data immediately** and click **Switch Off**.
+
+The Partition Advisor is off and all recommendation data has been deleted.
+You can go back to **Instance Overview** page.
 
 ## Summary
 
-You've now ...
+You've successfully generated partitioning recommendations for your selected schema(s) and table(s) and applied them easily with a simple click of **Apply** from the **Recommendation App**. 
 
-Continue to - [Exercise 2 - Exercise 2 Description](../ex2/README.md)
+You can find an asset about Partition Advisor below.
+- [Partition Advisor Help Documentation](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/about-partition-advisor?locale=en-US)
 
+
+Continue to - [Exercise 2 - Index Advisor](../ex3/README.md)
