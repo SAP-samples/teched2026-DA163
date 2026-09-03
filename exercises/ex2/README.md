@@ -1,4 +1,4 @@
-# Exercise 3 - Index Advisor
+# Exercise 2 - Index Advisor/
 
 In this exercise, you will create a dataset and generate index recommendations using **Recommendation App** in **HANA Cloud Central**. You will then manually apply these recommendations through the **SQL Console** in **HANA Cloud Central** and validate their performance benefits. 
 
@@ -149,91 +149,91 @@ CALL GENERATE_SELECT_WORKLOAD(10000);
 Once you see it's successfully executed, you are ready to start Exercise 3.1.
 
 
-## Exercise 3.1 Generate index recommendations with Index Advisor
+## Exercise 2.1 Generate index recommendations with Index Advisor
 
 After completing these steps you will have successfully generated four index recommendations for your HANA Cloud instance with Index Advisor in **Recommendation App**.
 
 1. **Open SAP BTP Cockpit** (Skip this step if you already have it opened.)
 - Navigate to [SAP BTP Cockpit](https://emea.cockpit.btp.cloud.sap/cockpit?idp=tdct3ched1.accounts.ondemand.com#/globalaccount/4c772782-0751-42ee-93c3-897452fdcb63/subaccount/27eb38bc-fdf9-4055-9a8d-6d30ea5f2b8f/service-instances).
 - Login with your **_User Name_** and **_Password_**.
-    - User Name: **_da263_0xx@education.cloud.sap_** (xx: your index)
+    - User Name: **_da163_0xx@education.cloud.sap_** (xx: your index)
     - Password: Provided in the PPT slide
 
 2. **Access HANA Cloud Central** (Skip this step if you already have it opened.)
 - Click **Instances and Subscriptions** in the leftmost navigation panel.
 - Click **SAP HANA Cloud** in the Application list to open HANA Cloud Central.
-<br>![](/exercises/ex1/images/01_00.png)
+<br>![](/exercises/images_general/01_00.png)
 - In HANA Cloud Central, you can see your HANA Cloud instance. Click the instance and open **Overview** page.
-<br>![](/exercises/ex1/images/01_01.png)
+<br>![](/exercises/images_general/01_01.png)
 
 3. **Switch On the Index Advisor**
 - Choose **Index** from **Recommendations** card.
 <br>![](/exercises/ex3/images/03_00.png)
 
 - Click **Switch On** and then click **Save**.
-<br>![](/exercises/ex3/images/03_01.png)
-<br>![](/exercises/ex3/images/03_02.png)
+<br>![](/exercises/ex2/images/03_01.png)
+<br>![](/exercises/ex2/images/03_02.png)
 
 4. **Generate Recommendations**
 - Now the advisor is switched on. Click **Generate Recommendations**.
-<br>![](/exercises/ex3/images/03_03.png)
+<br>![](/exercises/ex2/images/03_03.png)
 
 - You can see **Index** area is already selected. Click **Generate Recommendations** at the bottom.
-<br>![](/exercises/ex3/images/03_04.png)
+<br>![](/exercises/ex2/images/03_04.png)
 There is no specific configuration you need to do to switch on the Index Advisor unlike ECN Advisor or Partition Advisor. As soon as you request a recommendation generation, the advisor will start analyzing all the schemas and tables in your instance.
 
 - The advisor is analyzing the tables and columns to generate recommendations to create or drop index. It takes around 1-2 minutes for this exercise.
-<br>![](/exercises/ex3/images/03_05.png)
+<br>![](/exercises/ex2/images/03_05.png)
 
 - Once the analysis is done and the advisor has identified tables that would benefit from creating or dropping index, there will be available recommendations generated. For this exercise, there are four recommendations generated. Two of them are create index recommendations and the other two are drop index recommendations.
-<br>![](/exercises/ex3/images/03_06.png)
+<br>![](/exercises/ex2/images/03_06.png)
 
 
-## Exercise 3.2 Apply index recommendations via SQL Console
+## Exercise 2.2 Apply index recommendations via SQL Console
 
 As you have successfully generated index recommendations, you can apply the recommendations manually via SQL Console.
 
 1.	**Open the SQL Console and connect to your instance**
-- Go to the SQL Console by clicking the command line icon ![](/exercises/ex3/images/03_07.png) in the left navigation panel.
+- Go to the SQL Console by clicking the command line icon ![](/exercises/ex2/images/03_07.png) in the left navigation panel.
 
-- Unless it's already connected to your instance with DBADMIN, select your instance **DA263__0XX** and click **Connect with Stored Credentials**.
-<br>![](/exercises/ex3/images/03_07_a.png)
-<br>![](/exercises/ex3/images/03_07_b.png)
+- Unless it's already connected to your instance with DBADMIN, select your instance **DA163__0XX** and click **Connect with Stored Credentials**.
+<br>![](/exercises/ex2/images/03_07_a.png)
+<br>![](/exercises/ex2/images/03_07_b.png)
 
 2. **Check the performance before applying the recommendations**
 - Delete any existing script in the console if there's any. Run the following SQL command to call the procedure and check the **Execution Elapsed Time** and **Execution CPU Time**. 
 ```SQL
 CALL GENERATE_SELECT_WORKLOAD(10000);
 ```
-<br>![](/exercises/ex3/images/03_08.png)
+<br>![](/exercises/ex2/images/03_08.png)
 You will compare the performance after applying all recommendations.
 
 3. **Review and apply the recommendations**
-- Click the instances icon ![](/exercises/ex3/images/03_09.png) on the top of the navigation panel to go back to the instance list.
+- Click the instances icon ![](/exercises/ex2/images/03_09.png) on the top of the navigation panel to go back to the instance list.
 
 - Select your instance.
-<br>![](/exercises/ex3/images/03_10.png)
+<br>![](/exercises/ex2/images/03_10.png)
 
 - Go to the index recommendation list and click the first recommendation to check the details.
-<br>![](/exercises/ex3/images/03_11.png)
+<br>![](/exercises/ex2/images/03_11.png)
 
 - Review the details of the recommendation such as index information and copy the index SQL statement. This recommends to create an index on STATUS column in MOVIES table. Creating an index on a frequently accessed column improves query performance by allowing the database to quickly find and retrieve data without scanning the entire table. <ins>Please keep in mind that the sequence of the recommendations generated with your instance can be different from this guide.</ins>
-<br>![](/exercises/ex3/images/03_12.png)
+<br>![](/exercises/ex2/images/03_12.png)
 
 - Go back to the SQL Console and paste the copied SQL statement to create index.
-<br>![](/exercises/ex3/images/03_13.png)
+<br>![](/exercises/ex2/images/03_13.png)
 
 - Repeat the same task for the second recommendation which proposes to create index on GENRE column in MOVIES table.
-<br>![](/exercises/ex3/images/03_14.png)
+<br>![](/exercises/ex2/images/03_14.png)
 
 - Repeat the same task for the third recommendation to drop the index on GENRE column in MOVIES2 table. It's recommended as this index has never been used. Dropping the unused index improves database performance by reducing storage overhead and speeding up write operations.
-<br>![](/exercises/ex3/images/03_15.png)
+<br>![](/exercises/ex2/images/03_15.png)
 
 - Repeat it for the last recommendation to drop the index on STATUS column in MOVIES2 table.
-<br>![](/exercises/ex3/images/03_16.png)
+<br>![](/exercises/ex2/images/03_16.png)
 
 - After applying all four recommendations, you can see it from the statement history as below.
-<br>![](/exercises/ex3/images/03_17.png)
+<br>![](/exercises/ex2/images/03_17.png)
 
 4. **Validate the performance after applying the recommendations**
 
@@ -243,23 +243,23 @@ CALL GENERATE_SELECT_WORKLOAD(10000);
 ```
 
 - You can see that the **Execution Elapsed Time** and **Execution CPU Time** have been significantly reduced.
-<br>![](/exercises/ex3/images/03_18.png)
+<br>![](/exercises/ex2/images/03_18.png)
 
 
 5. **Delete the existing recommendations**
 - As the current Index Advisor doesn't support Apply feature, it cannot track the status of each recommendation. After you have applied the recommendations manually, the recommendations will stay as Available in the list. If you would like to clean up these recommendations, you can switch off the advisor instead.
 
 - In the **Advisors** tab, click **Index Advisor** from the list.
-<br>![](/exercises/ex3/images/03_20.png)
+<br>![](/exercises/ex2/images/03_20.png)
 
 - Click **Switch Off** on the top right side.
-<br>![](/exercises/ex3/images/03_21.png)
+<br>![](/exercises/ex2/images/03_21.png)
 
 - Recommend retaining data for two weeks for your real instances, but for this exercise, choose **Remove data immediately** and click **Switch Off**.
-<br>![](/exercises/ex3/images/03_22.png)
+<br>![](/exercises/ex2/images/03_22.png)
 
 - The recommendations are deleted from the list.
-<br>![](/exercises/ex3/images/03_23.png)
+<br>![](/exercises/ex2/images/03_23.png)
 
 ## Clean-up
 
@@ -283,7 +283,7 @@ You can find an asset about Index Advisor below.
 - [Index Advisor Help Documentation](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/about-index-advisor?locale=en-US)
 
 
-You've now completed all the hands-on exercise for **DA263: SAP HANA Cloud Advisor and Automation**.
+You've now completed all the hands-on exercise for **DA163: SAP HANA Cloud Advisor and Automation**.
 
 Thank you very much for your participation.
 
