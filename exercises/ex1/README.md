@@ -89,7 +89,7 @@ BEGIN
   DECLARE i INT = 0;
   WHILE :i < 100 DO
     EXECUTE IMMEDIATE '
-      SELECT * FROM T_SCENARIO_3
+      SELECT * FROM T_SCENARIO_
       WHERE EVENT_DATE > DATE''2023-01-01''
     ';
     i = :i + 1;
@@ -108,7 +108,7 @@ After completing these steps you will have successfully generated five partition
 1. **Open SAP BTP Cockpit** (Skip this step if you already have it opened.)
 - Navigate to [SAP BTP Cockpit](https://emea.cockpit.btp.cloud.sap/cockpit?idp=tdct3ched1.accounts.ondemand.com#/globalaccount/4c772782-0751-42ee-93c3-897452fdcb63/subaccount/27eb38bc-fdf9-4055-9a8d-6d30ea5f2b8f/service-instances).
 - Login with your **_User Name_** and **_Password_**.
-    - User Name: **_da263_0xx@education.cloud.sap_** (xx: your index)
+    - User Name: **_DA163-0xx@education.cloud.sap_** (xx: your index)
     - Password: Provided in the PPT slide
 
 2. **Access HANA Cloud Central** (Skip this step if you already have it opened.)
@@ -126,7 +126,7 @@ After completing these steps you will have successfully generated five partition
 - Click **Switch On**.
 <br>![](/exercises/ex1/images/02_02.png)
 
-- You need a dedicated **Partition Advisor User** to use the Partition Advisor. You can find more details about the **Partition Advisor User** in the [Getting Started](exercises/ex0/) section. The **Partition Advisor User** has been already created for this exercise. Add the following credential and click **Save**.
+- You need a dedicated **Partition Advisor User** to use the Partition Advisor. You can find more details about the **Partition Advisor User** in the [Getting Started](ex0/) section. The **Partition Advisor User** has been already created for this exercise. Add the following credential and click **Save**.
 
   - Username: _**PAUSER**_
   - Password: _**Partitionadvisor1**_
