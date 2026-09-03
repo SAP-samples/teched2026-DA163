@@ -283,9 +283,8 @@ You can find an asset about Index Advisor below.
 - [Index Advisor Help Documentation](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/about-index-advisor?locale=en-US)
 
 
-You've now completed all the hands-on exercise for **DA163: SAP HANA Cloud Advisor and Automation**.
+Continue to - [Exercise 3 - Elastic Compute Node Advisor and SAP Automation Pilot](../ex3/README.md)
 
-Thank you very much for your participation.
 
 
 
