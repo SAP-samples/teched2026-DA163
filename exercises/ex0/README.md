@@ -30,8 +30,7 @@ This interactive session is designed to give you practical experience in generat
   - **SELECT** privilege ON SCHEMA **‘SCHEMA NAME’** to enable the advisor user to see <ins>a schema and the tables contained in it</ins>
   - (Optional) **SELECT** privilege ON **‘TABLE NAME’** to enable the advisor user to see and generate recommendations for <ins>a specific table only</ins>
 
-- Further information on the [Partition Advisor](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/about-partition-advisor?locale=en-US&version=2025_3_QRC)
-
+- Further information on the [Partition Advisor](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/about-partition-advisor?locale=en-US)
 
 ## Prerequisites for Exercise 2
 
@@ -55,7 +54,7 @@ This interactive session is designed to give you practical experience in generat
   - You have the **INDEX** object-level privilege on the table referenced by the index.
   - You have the **INDEX** schema-level privilege on the schema containing the table referenced by the index.
 
-- Further information on the [Index Advisor](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/about-index-advisor?locale=en-US&version=2025_3_QRC)
+- Further information on the [Index Advisor](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/about-index-advisor?locale=en-US)
 
 ## Prerequisites for Exercise 3
 
