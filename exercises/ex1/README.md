@@ -126,7 +126,7 @@ After completing these steps you will have successfully generated five partition
 - Click **Switch On**.
 <br>![](/exercises/ex1/images/02_02.png)
 
-- You need a dedicated **Partition Advisor User** to use the Partition Advisor. You can find more details about the **Partition Advisor User** in the [Getting Started](ex0/) section. The **Partition Advisor User** has been already created for this exercise. Add the following credential and click **Save**.
+- You need a dedicated **Partition Advisor User** to use the Partition Advisor. You can find more details about the **Partition Advisor User** in the [Getting Started](/exercises/ex0/) section. The **Partition Advisor User** has been already created for this exercise. Add the following credential and click **Save**.
 
   - Username: _**PAUSER**_
   - Password: _**Partitionadvisor1**_
