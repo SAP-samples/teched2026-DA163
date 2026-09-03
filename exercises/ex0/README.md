@@ -4,7 +4,7 @@ In this exercise, you will be able able to configure all the prerequsities to co
 
 # Getting Started
 
-This hands-on workshop session will transform how you optimize your SAP HANA Cloud databases. You will explore the intelligent advisors available in HANA Cloud Central, where you'll learn to configure and leverage the Elastic Compute Node Advisor, Partition Advisor, and Index Advisor.
+This hands-on workshop session will transform how you optimize your SAP HANA Cloud databases. You will explore the intelligent advisors available in HANA Cloud Central, where you'll learn to configure and leverage the Partition Advisor, Index Advisor and Elastic Compute Node Advisor.
 
 This interactive session is designed to give you practical experience in generating intelligent database optimization recommendations that can improve your system performance. You will dive deep into the configuration process for each advisor, and learn multiple proven approaches for implementing these recommendations.
 
