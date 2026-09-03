@@ -18,7 +18,7 @@ For this hands-on exercise, **five exemplifying scenarios** have been designed. 
 - **T_SCENARIO_1**: Full unpartitioned table with primary key
 - **T_SCENARIO_2**: Unpartitioned table with high data usage and complex query patterns
 - **T_SCENARIO_3**: Unpartitioned time-based table with high access patterns
-- REMOVED - **T_SCENARIO_4**: Range partitioned table with a full 'OTHERS' partition
+- ** REMOVED T_SCENARIO_4**: Range partitioned table with a full 'OTHERS' partition
 - **T_SCENARIO_5**: Hash-hash partitioned table with some full partitions
 
 The minimum rows for repartitioning, repartitioning threshold, and initial partition values were set to artificially low levels to facilitate demonstration scenarios with minimal data and reduced workload. Refer to the [table placement rule](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/table-placement-rules?locale=en-US) for detailed parameter guide.
