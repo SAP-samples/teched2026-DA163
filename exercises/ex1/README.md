@@ -29,7 +29,9 @@ Please copy the following script and run it in the **SQL Console** in HANA Cloud
 
 **SQL Script**
 ```SQL
--- T_SCENARIO_2 script
+
+------- T_SCENARIO_2 script -------
+
 CONNECT DBADMIN PASSWORD Welcome1;
 SET SCHEMA PA_DEMO;
 
@@ -56,6 +58,7 @@ INSERT INTO T_SCENARIO_2
             ADD_DAYS(DATE'2023-01-01', MOD(s.ELEMENT_NUMBER, 180)) AS EVENT_TIME
         FROM SERIES_GENERATE_INTEGER(1, 1, 300) s;
 
+-- Simulate frequent access pattern
 DO
 BEGIN
   DECLARE i INT = 0;
@@ -68,7 +71,8 @@ BEGIN
   END WHILE;
 END;
 
--- T_SCENARIO_3 script
+------- T_SCENARIO_3 script -------
+
 ALTER SYSTEM ALTER TABLE PLACEMENT (SCHEMA_NAME=>'PA_DEMO', TABLE_NAME=>'T_SCENARIO_3')
 SET (MIN_ROWS_FOR_PARTITIONING=>100, REPARTITIONING_THRESHOLD=>10000, INITIAL_PARTITIONS=>3);
 
@@ -84,6 +88,8 @@ SELECT
     ADD_DAYS(DATE'2019-01-01', MOD(ELEMENT_NUMBER, 2190)),
     'Event ' || ELEMENT_NUMBER
 FROM SERIES_GENERATE_INTEGER(1, 1, 3600);
+
+-- Simulate frequent access pattern
 DO
 BEGIN
   DECLARE i INT = 0;
