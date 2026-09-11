@@ -178,33 +178,33 @@ This scenario has set aggressive partitioning parameters for the table:
 - INITIAL_PARTITIONS: 3
 
 1. **Review recommendation details for the table T_SCENARIO_1**
-<br>![](/exercises/ex1/images/02_14a.png)
-<br>![](/exercises/ex1/images/02_14b.png)
-<br>![](/exercises/ex1/images/02_14c.png)
+<br>![](/exercises/ex1/images/2026/01_14a.png)
+<br>![](/exercises/ex1/images/2026/01_14b.png)
+<br>![](/exercises/ex1/images/2026/01_14c.png)
 The advisor recommends **hash partitioning** on the primary key, **ID**, to resolve the full table issue.
 
 2. **Check current partitioning status** 
 - Before applying the recommendation, verify the current partitioning state of table 'T_SCENARIO_1'.
 
 - Open the **SQL Console** for your instance.
-<br>![](/exercises/ex1/images/02_15.png)
+<br>![](/exercises/ex1/images/2026/01_15.png)
 
 - Execute the following SQL script to check the current partitioning.
 ```SQL
 SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME='T_SCENARIO_1';
 ```
 - The query returns no results, confirming that the table is currently unpartitioned.
-<br>![](/exercises/ex1/images/02_16.png)
+<br>![](/exercises/ex1/images/2026/01_16.png)
 
 3. **Apply the recommendation**
 - Click **Apply** in the recommendation detail page.
-<br>![](/exercises/ex1/images/02_17.png)
+<br>![](/exercises/ex1/images/2026/01_17.png)
 - You can monitor the advisor applying the recommendation in the **Processes** tab.
-<br>![](/exercises/ex1/images/02_18.png)
+<br>![](/exercises/ex1/images/2026/01_18.png)
 
 4. **Validate partitioning implementation**
 - Re-run the same SQL script to confirm the partitioning has been applied.
-<br>![](/exercises/ex1/images/02_19.png)
+<br>![](/exercises/ex1/images/2026/01_19.png)
 The table has been successfully hash partitioned into 12 partitions on the primary key to distribute data evenly across multiple partitions and improve query performance by avoiding full table scans.
 
 
