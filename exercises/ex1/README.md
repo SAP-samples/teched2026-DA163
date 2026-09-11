@@ -147,23 +147,23 @@ After completing these steps you will have successfully generated five partition
 <br>![](/exercises/ex1/images/02_06.png)
 
 - Select the schema, named **PA_DEMO**. Then you can view the 5 tables in the schema. Click **Add**.
-<br>![](/exercises/ex1/images/02_07.png)
-<br>![](/exercises/ex1/images/02_08.png)
+<br>![](/exercises/ex1/images/2026/01_07.png)
+<br>![](/exercises/ex1/images/2026/01_08.png)
 
 - The target objects are added in the list. Click **Generate Recommendation**.
-<br>![](/exercises/ex1/images/02_09.png)
+<br>![](/exercises/ex1/images/2026/01_09.png)
 
 - The advisor is generating recommendations for the selected objects.
-<br>![](/exercises/ex1/images/02_10.png)
+<br>![](/exercises/ex1/images/2026/01_10.png)
 
 - Click **Refresh** icon on the top right side to see the progress updated.
-<br>![](/exercises/ex1/images/02_11.png)
+<br>![](/exercises/ex1/images/2026/01_11.png)
 
 - The recommendations have been generated and the **Status** has changed to **Executed**. Go to **Recommendations** tab to view the available recommendations.
-<br>![](/exercises/ex1/images/02_12.png)
+<br>![](/exercises/ex1/images/2026/01_12.png)
 
 - Here you can find the list of available recommendations for all 5 scenarios.
-<br>![](/exercises/ex1/images/02_13.png)
+<br>![](/exercises/ex1/images/2026/01_13.png)
 
 
 ## Exercise 1.2 Apply partitioning recommendations from Recommendation App
