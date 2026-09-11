@@ -127,24 +127,21 @@ After completing these steps you will have successfully generated five partition
 
 3. **Switch On the Partition Advisor**
 - Choose **Partition** from **Recommendations** card.
-<br>![](/exercises/ex1/images/02_01.png)
-
-- Click **Switch On**.
-<br>![](/exercises/ex1/images/02_02.png)
+<br>![](/exercises/ex1/images/2026/01_01.png)
 
 - You need a dedicated **Partition Advisor User** to use the Partition Advisor. You can find more details about the **Partition Advisor User** in the [Getting Started](/exercises/ex0/) section. The **Partition Advisor User** has been already created for this exercise. Add the following credential and click **Save**.
 
   - Username: _**PAUSER**_
   - Password: _**Partitionadvisor1**_
-<br>![](/exercises/ex1/images/02_03.png)
+<br>![](/exercises/ex1/images/2026/01_02.png)
 
 
 4. **Generate Recommendations**
 - The Partition Advisor is **On** and you can view the **Username**. Click **Generate Recommendations**.
-<br>![](/exercises/ex1/images/02_04.png)
+<br>![](/exercises/ex1/images/2026/01_04.png)
 
 - Click **Add** to select target object(s) that you want the advisor to analyze against. 
-<br>![](/exercises/ex1/images/02_05.png)
+<br>![](/exercises/ex1/images/2026/01_05.png)
 
 - You can choose **Object Type** between **Schema** or **Table**. Choose **Table** here and click **Schema** field to show a list of schema that the **Partition Advisor User** can view.
 <br>![](/exercises/ex1/images/02_06.png)
