@@ -242,24 +242,24 @@ You will compare the performance after applying all recommendations.
 CALL GENERATE_SELECT_WORKLOAD(10000);
 ```
 
-- You can see that the **Execution Elapsed Time** and **Execution CPU Time** have been significantly reduced.
-<br>![](/exercises/ex2/images/2026/03_18.png)
+- You can see that the **Execution Elapsed Time** and **Execution CPU Time** have been significantly reduced, executed elapsed time was near two minutes before:
+<br>![](/exercises/ex2/images/2026/02_17.png)
 
 
 5. **Delete the existing recommendations**
 - As the current Index Advisor doesn't support Apply feature, it cannot track the status of each recommendation. After you have applied the recommendations manually, the recommendations will stay as Available in the list. If you would like to clean up these recommendations, you can switch off the advisor instead.
 
 - In the **Advisors** tab, click **Index Advisor** from the list.
-<br>![](/exercises/ex2/images/2026/03_20.png)
+<br>![](/exercises/ex2/images/2026/02_18.png)
 
 - Click **Switch Off** on the top right side.
-<br>![](/exercises/ex2/images/2026/03_21.png)
+<br>![](/exercises/ex2/images/2026/02_19.png)
 
 - Recommend retaining data for two weeks for your real instances, but for this exercise, choose **Remove data immediately** and click **Switch Off**.
-<br>![](/exercises/ex2/images/2026/03_22.png)
+<br>![](/exercises/ex2/images/2026/02_20.png)
 
 - The recommendations are deleted from the list.
-<br>![](/exercises/ex2/images/2026/03_23.png)
+<br>![](/exercises/ex2/images/2026/02_21.png)
 
 ## Clean-up
 
