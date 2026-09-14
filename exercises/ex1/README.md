@@ -276,7 +276,7 @@ The advisor recommends splitting the partition into more proper range-based part
 SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME='T_SCENARIO_4';
 ```
 - The table is divided into partitions based on ranges of values in the 'O_ORDERKEY' column, but there are no explicit ranges defined, so all rows with any 'O_ORDERKEY' value are stored in the 'OTHERS' partition.
-<br>![](/exercises/ex1/images/2026/01_26_a.png)
+<br>![](/exercises/ex1/images/2026/01_26.png)
 
 - Check the performance by running the following query on a specific range of order keys before applying the recommendation.
 ```SQL
