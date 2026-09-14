@@ -265,7 +265,7 @@ The table has been successfully range-partitioned into 3 partitions, isolating f
 his scenario has created a range-partitioned table with a problematic 'OTHERS' partition.
 
 1. **Review recommendation details for the table T_SCENARIO_4**
-<br>![](/exercises/ex2/images/02_25.png)
+<br>![](/exercises/ex2/images/2026/01_25.png)
 The advisor recommends splitting the partition into more proper range-based partitions.
 
 2. **Check current partitioning status** 
@@ -276,7 +276,7 @@ The advisor recommends splitting the partition into more proper range-based part
 SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME='T_SCENARIO_4';
 ```
 - The table is divided into partitions based on ranges of values in the 'O_ORDERKEY' column, but there are no explicit ranges defined, so all rows with any 'O_ORDERKEY' value are stored in the 'OTHERS' partition.
-<br>![](/exercises/ex2/images/02_26.png)
+<br>![](/exercises/ex2/images/2026/01_26_a.png)
 
 - Check the performance by running the following query on a specific range of order keys before applying the recommendation.
 ```SQL
@@ -284,18 +284,18 @@ SET SCHEMA PA_DEMO;
 SELECT * FROM T_SCENARIO_4 WHERE O_ORDERKEY > 1000000 AND O_ORDERKEY < 1200000;
 ```
 
-- Check **Execution Elapsed Time** and **Execution CPU Time** in the **History** tab.
-<br>![](/exercises/ex2/images/02_26_a.png)
+- Check **Execution Elapsed Time** and **Execution CPU Time** in the **Messages** tab.
+<br>![](/exercises/ex2/images/2026/01_26_a.png)
 
 3. **Apply the recommendation**
 - Click **Apply** in the recommendation detail page.
 
 - Check the applied recommendation by adding **Applied** in the **Status** filter.
-<br>![](/exercises/ex2/images/02_27.png)
+<br>![](/exercises/ex2/images/2026/01_27.png)
 
 4. **Validate partitioning implementation**
 - Re-run the same SQL script to confirm the partitioning has been applied. The oversized 'OTHERS' partition has been split into proper range-based partitions to improve query performance for range-based queries.
-<br>![](/exercises/ex2/images/02_26_c.png)
+<br>![](/exercises/ex2/images/2026/01_26_c.png)
 
 - Check the performance with the same SQL script and confirm the performance improvement compared to before applying the recommendation.
 ```SQL
@@ -304,7 +304,7 @@ SELECT * FROM T_SCENARIO_4 WHERE O_ORDERKEY > 1000000 AND O_ORDERKEY < 1200000;
 ```
 
 - You can see that the **Execution Elapsed Time** and **Execution CPU Time** have been reduced significantly.
-<br>![](/exercises/ex2/images/02_26_b.png)
+<br>![](/exercises/ex2/images/2026/01_26_b.png)
 
 ### Scenario 5: Hash-hash partitioned table with some full partitions
 
