@@ -183,10 +183,10 @@ After completing these steps you will have successfully generated four index rec
 There is no specific configuration you need to do to switch on the Index Advisor unlike ECN Advisor or Partition Advisor. As soon as you request a recommendation generation, the advisor will start analyzing all the schemas and tables in your instance.
 
 - The advisor is analyzing the tables and columns to generate recommendations to create or drop index. It takes around 1-2 minutes for this exercise.
-<br>![](/exercises/ex2/images/2026/02_05.png)
+<br>![](/exercises/ex2/images/2026/02_04.png)
 
 - Once the analysis is done and the advisor has identified tables that would benefit from creating or dropping index, there will be available recommendations generated. For this exercise, there are four recommendations generated. Two of them are create index recommendations and the other two are drop index recommendations.
-<br>![](/exercises/ex2/images/2026/02_06.png)
+<br>![](/exercises/ex2/images/2026/02_05.png)
 
 
 ## Exercise 2.2 Apply index recommendations via SQL Console
