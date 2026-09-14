@@ -18,7 +18,7 @@ For this hands-on exercise, **five exemplifying scenarios** have been designed. 
 - **T_SCENARIO_1**: Full unpartitioned table with primary key
 - **T_SCENARIO_2**: Unpartitioned table with high data usage and complex query patterns
 - **T_SCENARIO_3**: Unpartitioned time-based table with high access patterns
-- ** REMOVED T_SCENARIO_4**: Range partitioned table with a full 'OTHERS' partition
+- **T_SCENARIO_4**: Range partitioned table with a full 'OTHERS' partition
 - **T_SCENARIO_5**: Hash-hash partitioned table with some full partitions
 
 The minimum rows for repartitioning, repartitioning threshold, and initial partition values were set to artificially low levels to facilitate demonstration scenarios with minimal data and reduced workload. Refer to the [table placement rule](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/table-placement-rules?locale=en-US) for detailed parameter guide.
@@ -213,7 +213,7 @@ The table has been successfully hash partitioned into 12 partitions on the prima
 This scenario has simulated heavy query load by executing the same query 100 times, creating a usage pattern where a specific column is frequently queried.
 
 1. **Review recommendation details for the table T_SCENARIO_2**
-<br>![](/exercises/ex1/images/02_20.png)
+<br>![](/exercises/ex1/images/2026/01_20.png)
 The advisor identifies the 'EVENT_TYPE' column as the most frequently queried column and recommends hash partitioning on this column for optimal performance.
 
 2. **Check current partitioning status** 
@@ -228,11 +228,11 @@ SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME
 
 3. **Apply the recommendation**
 - Click **Apply** in the recommendation detail page.
-<br>![](/exercises/ex1/images/02_21.png)
+<br>![](/exercises/ex1/images/2026/01_21.png)
 
 4. **Validate partitioning implementation**
 - Re-run the same SQL script to confirm the partitioning has been applied.
-<br>![](/exercises/ex1/images/02_22.png)
+<br>![](/exercises/ex1/images/2026/01_22.png)
 The table has been successfully hash-partitioned into 3 partitions to improve query performance by distributing data based on the most-accessed column.
 
 ### Scenario 3: Unpartitioned time-based table with high access patterns
@@ -240,7 +240,7 @@ The table has been successfully hash-partitioned into 3 partitions to improve qu
 This scenario has simulated a time-based table with data spanning from 2019 to 2025, creating a historical dataset where recent "hot" data (2023 onwards) is frequently accessed, while older data (2019-2022) remains relatively unused.
 
 1. **Review recommendation details for the table T_SCENARIO_3**
-<br>![](/exercises/ex1/images/02_23.png)
+<br>![](/exercises/ex1/images/2026/01_23.png)
 The advisor suggests range partitioning to isolate the hot data (2023 onwards) in a single partition.
 
 2. **Check current partitioning status** 
@@ -256,14 +256,55 @@ SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME
 
 4. **Validate partitioning implementation**
 - Re-run the same SQL script to confirm the partitioning has been applied.
-<br>![](/exercises/ex1/images/02_24.png)
+<br>![](/exercises/ex1/images/2026/01_24.png)
 The table has been successfully range-partitioned into 3 partitions, isolating frequently accessed recent data in a dedicated partition and improving query performance by avoiding scans of older, unused data.
 
 
 ### Scenario 4 removed so far due to import from S3 bucket 
 
-(Images  02_25.png, 02_26.png, 02_26.png_a, 02_26.png_b, 02_26.png_c, 02_27.png) 
+his scenario has created a range-partitioned table with a problematic 'OTHERS' partition.
 
+1. **Review recommendation details for the table T_SCENARIO_4**
+<br>![](/exercises/ex2/images/02_25.png)
+The advisor recommends splitting the partition into more proper range-based partitions.
+
+2. **Check current partitioning status** 
+- To verify the current partitioning state of table 'T_SCENARIO_4', repeat the same steps from Scenario 1.
+
+- Run the following SQL script to check the current partitioning state.
+```SQL
+SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME='T_SCENARIO_4';
+```
+- The table is divided into partitions based on ranges of values in the 'O_ORDERKEY' column, but there are no explicit ranges defined, so all rows with any 'O_ORDERKEY' value are stored in the 'OTHERS' partition.
+<br>![](/exercises/ex2/images/02_26.png)
+
+- Check the performance by running the following query on a specific range of order keys before applying the recommendation.
+```SQL
+SET SCHEMA PA_DEMO;
+SELECT * FROM T_SCENARIO_4 WHERE O_ORDERKEY > 1000000 AND O_ORDERKEY < 1200000;
+```
+
+- Check **Execution Elapsed Time** and **Execution CPU Time** in the **History** tab.
+<br>![](/exercises/ex2/images/02_26_a.png)
+
+3. **Apply the recommendation**
+- Click **Apply** in the recommendation detail page.
+
+- Check the applied recommendation by adding **Applied** in the **Status** filter.
+<br>![](/exercises/ex2/images/02_27.png)
+
+4. **Validate partitioning implementation**
+- Re-run the same SQL script to confirm the partitioning has been applied. The oversized 'OTHERS' partition has been split into proper range-based partitions to improve query performance for range-based queries.
+<br>![](/exercises/ex2/images/02_26_c.png)
+
+- Check the performance with the same SQL script and confirm the performance improvement compared to before applying the recommendation.
+```SQL
+SET SCHEMA PA_DEMO;
+SELECT * FROM T_SCENARIO_4 WHERE O_ORDERKEY > 1000000 AND O_ORDERKEY < 1200000;
+```
+
+- You can see that the **Execution Elapsed Time** and **Execution CPU Time** have been reduced significantly.
+<br>![](/exercises/ex2/images/02_26_b.png)
 
 ### Scenario 5: Hash-hash partitioned table with some full partitions
 
