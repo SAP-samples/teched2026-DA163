@@ -112,7 +112,7 @@ Move on to the Exercise 1.1.
 After completing these steps you will have successfully generated five partitioning recommendations for your HANA Cloud instance in **Recommendation App**.
 
 1. **Open SAP BTP Cockpit** (Skip this step if you already have it opened.)
-- Navigate to [SAP BTP Cockpit](https://emea.cockpit.btp.cloud.sap/cockpit?idp=tdct3ched1.accounts.ondemand.com#/globalaccount/4c772782-0751-42ee-93c3-897452fdcb63/subaccount/27eb38bc-fdf9-4055-9a8d-6d30ea5f2b8f/service-instances).
+- Navigate to [SAP BTP Cockpit](https://emea.cockpit.btp.cloud.sap/cockpit/?idp=tdct3ched2.accounts.ondemand.com#/globalaccount/1976b81f-e6d9-40ac-a2d0-f4848cc7a24f/accountModel&//?section=SubaccountsSection&view=TilesView).
 - Login with your **_User Name_** and **_Password_**.
     - User Name: **_DA163-0xx@education.cloud.sap_** (xx: your index)
     - Password: Provided in the PPT slide
