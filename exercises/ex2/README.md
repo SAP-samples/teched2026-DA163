@@ -209,10 +209,10 @@ CALL GENERATE_SELECT_WORKLOAD(10000);
 You will compare the performance after applying all recommendations.
 
 3. **Review and apply the recommendations**
-- Click the instances icon ![](/exercises/ex2/images/2026/03_09.png) on the top of the navigation panel to go back to the instance list.
+- Click the instances icon ![](/exercises/ex2/images/2026/02_8.png) on the top of the navigation panel to go back to the instance list.
 
 - Select your instance.
-<br>![](/exercises/ex2/images/2026/03_10.png)
+<br>![](/exercises/ex2/images/2026/02_09.png)
 
 - Go to the index recommendation list and click the first recommendation to check the details.
 <br>![](/exercises/ex2/images/2026/03_11.png)
