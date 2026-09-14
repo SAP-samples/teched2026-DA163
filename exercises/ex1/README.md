@@ -295,7 +295,7 @@ SELECT * FROM T_SCENARIO_4 WHERE O_ORDERKEY > 1000000 AND O_ORDERKEY < 1200000;
 
 4. **Validate partitioning implementation**
 - Re-run the same SQL script to confirm the partitioning has been applied. The oversized 'OTHERS' partition has been split into proper range-based partitions to improve query performance for range-based queries.
-<br>![](/exercises/ex1/images/2026/01_26_c.png)
+<br>![](/exercises/ex1/images/2026/01_26_b.png)
 
 - Check the performance with the same SQL script and confirm the performance improvement compared to before applying the recommendation.
 ```SQL
@@ -304,7 +304,7 @@ SELECT * FROM T_SCENARIO_4 WHERE O_ORDERKEY > 1000000 AND O_ORDERKEY < 1200000;
 ```
 
 - You can see that the **Execution Elapsed Time** and **Execution CPU Time** have been reduced significantly.
-<br>![](/exercises/ex1/images/2026/01_26_b.png)
+<br>![](/exercises/ex1/images/2026/01_26_c.png)
 
 ### Scenario 5: Hash-hash partitioned table with some full partitions
 
