@@ -194,11 +194,11 @@ There is no specific configuration you need to do to switch on the Index Advisor
 As you have successfully generated index recommendations, you can apply the recommendations manually via SQL Console.
 
 1.	**Open the SQL Console and connect to your instance**
-- Go to the SQL Console by clicking the command line icon ![](/exercises/ex2/images/2026/03_07.png) in the left navigation panel.
+- Go to the SQL Console by clicking the command line icon ![](/exercises/ex2/images/2026/02_06.png) in the left navigation panel.
 
 - Unless it's already connected to your instance with DBADMIN, select your instance **DA163__0XX** and click **Connect with Stored Credentials**.
-<br>![](/exercises/ex2/images/2026/03_07_a.png)
-<br>![](/exercises/ex2/images/2026/03_07_b.png)
+<br>![](/exercises/ex2/images/2026/02_06_a.png)
+<br>![](/exercises/ex2/images/2026/02_06_b.png)
 
 2. **Check the performance before applying the recommendations**
 - Delete any existing script in the console if there's any. Run the following SQL command to call the procedure and check the **Execution Elapsed Time** and **Execution CPU Time**. 
