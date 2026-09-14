@@ -311,8 +311,8 @@ SELECT * FROM T_SCENARIO_4 WHERE O_ORDERKEY > 1000000 AND O_ORDERKEY < 1200000;
 This scenario has created an imbalanced multi-level hash partitioned table. The hash  partitioning on 'REGION' doesn't distribute data evenly, causing some partitions to become full while others remain relatively empty.
 
 1. **Review recommendation details for the table T_SCENARIO_5**
-<br>![](/exercises/ex1/images/02_28_a.png)
-<br>![](/exercises/ex1/images/02_28_b.png)
+<br>![](/exercises/ex1/images/2026/01_28_a.png)
+<br>![](/exercises/ex1/images/2026/01_28_b.png)
 The advisor proposes to increase the number of leaf partitions while keeping the partitioning hierarchy balanced.
 
 2. **Check current partitioning status** 
@@ -321,14 +321,14 @@ The advisor proposes to increase the number of leaf partitions while keeping the
 SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME='T_SCENARIO_5';
 ```
 - The table currently has a two-level partitioning scheme: the first level is hash partitioned with the 'REGION' value into 2 partitions, and the second level is hash subpartitioned with the 'CUSTOMER_ID' into 2 partitions.
-<br>![](/exercises/ex1/images/02_29.png)
+<br>![](/exercises/ex1/images/2026/01_29.png)
 
 3. **Apply the recommendation**
 - Click **Apply** in the recommendation detail page.
 
 4. **Validate partitioning implementation**
 - Re-run the same SQL script to confirm the partitioning has been applied.
-<br>![](/exercises/ex1/images/02_30.png)
+<br>![](/exercises/ex1/images/2026/01_30.png)
 The table now has 16 leaf partitions to achieve better data distribution while maintaining partitioning hierarchy balance.
 
 ## Clean-up
