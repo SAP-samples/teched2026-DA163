@@ -168,7 +168,7 @@ After completing these steps you will have successfully generated four index rec
 
 3. **Switch On the Index Advisor**
 - Choose **Index** from **Recommendations** card.
-<br>![](/exercises/ex3/images/2026/02_00.png)
+<br>![](/exercises/ex2/images/2026/02_00.png)
 
 - Click **Switch On** and then click **Save**.
 <br>![](/exercises/ex2/images/2026/02_01.png)
@@ -221,7 +221,7 @@ You will compare the performance after applying all recommendations.
 <br>![](/exercises/ex2/images/2026/02_11.png)
 
 - Go back to the SQL Console and paste the copied SQL statement to create index.
-<br>![](/exercises/ex3/images/2026/02_12.png)
+<br>![](/exercises/ex2/images/2026/02_12.png)
 
 - Repeat the same task for the second recommendation which proposes to create index on GENRE column in MOVIES table.
 <br>![](/exercises/ex2/images/2026/02_13.png)
@@ -283,7 +283,7 @@ You can find an asset about Index Advisor below.
 - [Index Advisor Help Documentation](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/about-index-advisor?locale=en-US)
 
 
-Continue to - [Exercise 3 - Elastic Compute Node Advisor and SAP Automation Pilot](../ex3/README.md)
+Continue to - [Exercise 3 - Elastic Compute Node Advisor and SAP Automation Pilot](../ex2/README.md)
 
 
 
