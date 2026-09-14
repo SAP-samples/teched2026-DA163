@@ -205,7 +205,7 @@ As you have successfully generated index recommendations, you can apply the reco
 ```SQL
 CALL GENERATE_SELECT_WORKLOAD(10000);
 ```
-<br>![](/exercises/ex2/images/2026/03_08.png)
+<br>![](/exercises/ex2/images/2026/02_07.png)
 You will compare the performance after applying all recommendations.
 
 3. **Review and apply the recommendations**
