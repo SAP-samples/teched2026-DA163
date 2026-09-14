@@ -224,16 +224,16 @@ You will compare the performance after applying all recommendations.
 <br>![](/exercises/ex3/images/2026/02_12.png)
 
 - Repeat the same task for the second recommendation which proposes to create index on GENRE column in MOVIES table.
-<br>![](/exercises/ex2/images/2026/03_13.png)
+<br>![](/exercises/ex2/images/2026/02_13.png)
 
 - Repeat the same task for the third recommendation to drop the index on GENRE column in MOVIES2 table. It's recommended as this index has never been used. Dropping the unused index improves database performance by reducing storage overhead and speeding up write operations.
-<br>![](/exercises/ex2/images/2026/03_14.png)
+<br>![](/exercises/ex2/images/2026/02_14.png)
 
 - Repeat it for the last recommendation to drop the index on STATUS column in MOVIES2 table.
-<br>![](/exercises/ex2/images/2026/03_15.png)
+<br>![](/exercises/ex2/images/2026/02_15.png)
 
 - After applying all four recommendations, you can see it from the statement history as below.
-<br>![](/exercises/ex2/images/2026/03_16.png)
+<br>![](/exercises/ex2/images/2026/02_16.png)
 
 4. **Validate the performance after applying the recommendations**
 
