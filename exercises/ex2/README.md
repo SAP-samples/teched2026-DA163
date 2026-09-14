@@ -215,13 +215,13 @@ You will compare the performance after applying all recommendations.
 <br>![](/exercises/ex2/images/2026/02_09.png)
 
 - Go to the index recommendation list and click the first recommendation to check the details.
-<br>![](/exercises/ex2/images/2026/03_11.png)
+<br>![](/exercises/ex2/images/2026/02_10.png)
 
 - Review the details of the recommendation such as index information and copy the index SQL statement. This recommends to create an index on STATUS column in MOVIES table. Creating an index on a frequently accessed column improves query performance by allowing the database to quickly find and retrieve data without scanning the entire table. <ins>Please keep in mind that the sequence of the recommendations generated with your instance can be different from this guide.</ins>
-<br>![](/exercises/ex2/images/2026/03_12.png)
+<br>![](/exercises/ex2/images/2026/02_11.png)
 
 - Go back to the SQL Console and paste the copied SQL statement to create index.
-<br>![](/exercises/ex2/images/2026/03_13.png)
+<br>![](/exercises/ex3/images/2026/02_12.png)
 
 - Repeat the same task for the second recommendation which proposes to create index on GENRE column in MOVIES table.
 <br>![](/exercises/ex2/images/2026/03_14.png)
