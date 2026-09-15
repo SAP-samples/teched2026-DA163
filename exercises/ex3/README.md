@@ -156,11 +156,11 @@ With the **Automation Pilot**, you can run predefined commands or create custom 
 <br>![](/exercises/ex3/images/2026/03_ap10.png)
 
 - Add the copied SQL Endpoint in the value after <ins>**jdbc:sap://**</ins> and save it.
-<br>![](/exercises/ex3/images/01_ap09.png)
+<br>![](/exercises/ex3/images/2026/03_ap11.png)
 
 - Update **dbPassword** to your instance password.
-<br>![](/exercises/ex3/images/01_ap10.png)
-<br>![](/exercises/ex3/images/01_ap11.png)
+<br>![](/exercises/ex3/images/2026/03_ap12.png)
+
 Your DB Password: **_Welcome1_**
 
 - Update **instanceID** to your instance ID. You can copy it from **HANA Cloud Central** again.
