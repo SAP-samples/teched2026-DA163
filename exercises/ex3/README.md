@@ -87,7 +87,7 @@ In this exercise, you keep it as 1 day as it has been already selected by defaul
 
 
 - (Optional) On the top right side of the recommendation, there is a **Provide Feedback** button to share your feedback on this recommendation. You can provide your evaluation on if and how this specific recommendation was helpful for you. This information will be kept confidential and used only for analysis by SAP internal teams to improve the advisors.
-<br>![](/exercises/ex3/images/01_12_fb.png)
+<br>![](/exercises/ex3/images/2026/03_12_fb.png)
 
 <br>Now you have successfully generated the ECN recommendation. You can move on to the next step to provision and deprovision an ECN as recommended by the advisor.
 
@@ -109,10 +109,10 @@ You can provision and deprovision the ECN and route the workload class to the EC
 3.122.189.245
 ```
 You can click need to add the IP address in the table view one by one by clicking **Add** button as you see in the screenshot below.
-<br>![](/exercises/ex3/images/00_ap00.png)
+<br>![](/exercises/ex3/images/2026/03_ap00.png)
 
 Or, in a simpler way, you can switch to the syntax view and copy and paste the 6 IP addresses like below.
-<br>![](/exercises/ex3/images/00_ap01.png)
+<br>![](/exercises/ex3/images/2026/03_ap01.png)
 
 - Click **Review and Save**.
 
@@ -122,7 +122,7 @@ Or, in a simpler way, you can switch to the syntax view and copy and paste the 6
 2. **Open Automation Pilot from SAP BTP Cockpit**
 - Go back to SAP BTP Cockpit.
 - Click **Automation Pilot** from Application list from **Subscriptions**.
-<br>![](/exercises/ex3/images/01_ap01.png)
+<br>![](/exercises/ex3/images/2026/03_ap02.png)
 
 
 3.	**Import an ECN HANA Cloud Other Environment Catalog**
