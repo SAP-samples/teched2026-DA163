@@ -129,17 +129,17 @@ Or, in a simpler way, you can switch to the syntax view and copy and paste the 6
 
 With the **Automation Pilot**, you can run predefined commands or create custom commands. For ECN provisioning and deprovisioning in HANA Cloud Other Environment instance, we have published a catalog with predefined commands to make it easy to use. This catalog is not included in **Provided Catalogs** of the service, but you will import the prepared catalog through the following steps.
 
-- Go to **My Catalogs** and click **Import** button on the top right side.
-<br>![](/exercises/ex3/images/01_ap02.png)
+- Go to **Catalogs** and click **Import** button on the top right side.
+<br>![](/exercises/ex3/images/2026/03_ap03.png)
 
 - Click [here](https://github.com/SAP-samples/automation-pilot-examples/blob/main/hana-ecn-other/ecncatalog_otherenv.json) and copy raw file. This repository contains a curated collection of example Automation Pilot commands and what you see now is for ECN scenario.
-<br>![](/exercises/ex3/images/01_ap03.png)
+<br>![](/exercises/ex3/images/2026/03_ap04.png)
 
 - Paste the copied raw file into the bottom field and click import. This is a json file that includes all the necessary parameters for ECN provisioning and deprovisioning.
-<br>![](/exercises/ex3/images/01_ap04.png)
+<br>![](/exercises/ex3/images/2026/03_ap05.png)
 
-- You can now see the imported ECN catalog in your catalog list.
-<br>![](/exercises/ex3/images/01_ap05.png)
+- You can now see the imported ECN catalog in your catalog list filtering by name "ECN".
+<br>![](/exercises/ex3/images/2026/03_ap06png)
 
 
 4. **Edit Inputs of the Catalog**
