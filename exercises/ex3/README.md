@@ -164,15 +164,16 @@ With the **Automation Pilot**, you can run predefined commands or create custom 
 Your DB Password: **_Welcome1_**
 
 - Update **instanceID** to your instance ID. You can copy it from **HANA Cloud Central** again.
-<br>![](/exercises/ex3/images/01_ap12.png)
-<br>![](/exercises/ex3/images/01_ap13.png)
-<br>![](/exercises/ex3/images/01_ap14.png)
+<br>![](/exercises/ex3/images/2026/03_ap13.png)
+<br>![](/exercises/ex3/images/2026/03_ap14.png)
+<br>![](/exercises/ex3/images/2026/03_ap15.png)
+
 
 - Update **serviceKey**. Copy JSON from **BTP Cockpit** and paste it as below.
-<br>![](/exercises/ex3/images/01_ap15.png)
-<br>![](/exercises/ex3/images/01_ap16.png)
-<br>![](/exercises/ex3/images/01_ap17.png)
-<br>![](/exercises/ex3/images/01_ap18.png)
+<br>![](/exercises/ex3/images/2026/03_ap16.png)
+<br>![](/exercises/ex3/images/2026/03_ap17.png)
+<br>![](/exercises/ex3/images/2026/03_ap18.png)
+<br>![](/exercises/ex3/images/2026/03_ap19.png)
 
 - Now you go back to **Inputs** list and click **HanaCloudServiceKey**.
 <br>![](/exercises/ex3/images/01_ap20.png)
