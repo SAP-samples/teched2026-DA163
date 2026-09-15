@@ -86,12 +86,8 @@ In this exercise, you keep it as 1 day as it has been already selected by defaul
 <br>![](/exercises/ex3/images/2026/03_10.png)
 
 
-- In the **Explanation** field, you can see the memory and compute usage chart and the explanation at the bottom.
-<br>![](/exercises/ex3/images/2026/03_11.png)
-
-
 - (Optional) On the top right side of the recommendation, there is a **Provide Feedback** button to share your feedback on this recommendation. You can provide your evaluation on if and how this specific recommendation was helpful for you. This information will be kept confidential and used only for analysis by SAP internal teams to improve the advisors.
-<br>![](/exercises/ex3/images/2026/03_12_fb.png)
+<br>![](/exercises/ex3/images/01_12_fb.png)
 
 <br>Now you have successfully generated the ECN recommendation. You can move on to the next step to provision and deprovision an ECN as recommended by the advisor.
 
