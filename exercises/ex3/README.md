@@ -144,16 +144,16 @@ With the **Automation Pilot**, you can run predefined commands or create custom 
 
 4. **Edit Inputs of the Catalog**
 - Click **Inputs** in the catalog.
-<br>![](/exercises/ex3/images/01_ap19.png)
+<br>![](/exercises/ex3/images/2026/03_ap07.png)
 
 - Click **HanaCloudOtherEnvironments**.
-<br>![](/exercises/ex3/images/01_ap07.png)
+<br>![](/exercises/ex3/images/2026/03_ap08.png)
 
 - You can see the list of **Keys** in **Content** field. Edit each key by clicking a Pencil icon.
-<br>![](/exercises/ex3/images/01_ap08.png)
+<br>![](/exercises/ex3/images/2026/03_ap09.png)
 
 - For the first key, you need to add **connectionUrl**. Access **HANA Cloud Central** to **Copy SQL Endpoint** of your instance.
-<br>![](/exercises/ex3/images/01_ap06.png)
+<br>![](/exercises/ex3/images/2026/03_ap010.png)
 
 - Add the copied SQL Endpoint in the value after <ins>**jdbc:sap://**</ins> and save it.
 <br>![](/exercises/ex3/images/01_ap09.png)
