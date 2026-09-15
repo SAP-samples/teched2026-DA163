@@ -176,11 +176,11 @@ Your DB Password: **_Welcome1_**
 <br>![](/exercises/ex3/images/2026/03_ap19.png)
 
 - Now you go back to **Inputs** list and click **HanaCloudServiceKey**.
-<br>![](/exercises/ex3/images/01_ap20.png)
+<br>![](/exercises/ex3/images/2026/03_ap20.png)
 
 - Update **serviceKey** <ins>again</ins> by copying and pasting JSON from **BTP Cockpit**.
-<br>![](/exercises/ex3/images/01_ap21.png)
-<br>![](/exercises/ex3/images/01_ap22.png)
+<br>![](/exercises/ex3/images/2026/03_ap21.png)
+<br>![](/exercises/ex3/images/2026/03_ap22.png)
 
 
 5. **Provision ECN with Commands**
