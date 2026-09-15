@@ -22,7 +22,7 @@ The ECN Advisor will be continuously enhanced with more advanced automation and 
 After completing these steps you will have successfully generated an ECN recommendation for your HANA Cloud instance from HANA Cloud Central.
 
 1. **Open SAP BTP Cockpit**
-- Navigate to [SAP BTP Cockpit](https://emea.cockpit.btp.cloud.sap/cockpit?idp=tdct3ched1.accounts.ondemand.com#/globalaccount/4c772782-0751-42ee-93c3-897452fdcb63/subaccount/27eb38bc-fdf9-4055-9a8d-6d30ea5f2b8f/service-instances).
+- Navigate to [SAP BTP Cockpit](https://emea.cockpit.btp.cloud.sap/cockpit/?idp=tdct3ched2.accounts.ondemand.com#/globalaccount/1976b81f-e6d9-40ac-a2d0-f4848cc7a24f/accountModel&//?section=SubaccountsSection&view=TilesView).
 - Login with your **_User Name_** and **_Password_**.
     - User Name: **_da263-0xx@education.cloud.sap_** (xx: your index)
     - Password: **_Provided in the PPT slide_**
@@ -43,41 +43,41 @@ After completing these steps you will have successfully generated an ECN recomme
 - Click **Compute** card.
 
 - When you choose **24 Hours** on top, you will see some compute spikes occurred.
-<br>![](/exercises/ex3/images/01_17.png)
+<br>![](/exercises/ex3/images/2026/03_17.png)
 
 
 4. **Switch on ECN Advisor**
 - Go back to **Overview** page by clicking your instance name on top next to Usage Monitor.
 
 - Find a **Recommendations** card and click **Elastic Compute Node**.
-<br>![](/exercises/ex3/images/01_02.png)  
+<br>![](/exercises/ex3/images/2026/03_02.png)  
 
 
 - Click **Switch On**. You can see the resource usage over the past few days in the chart.
-<br>![](/exercises/ex3/images/01_03.png)  
+<br>![](/exercises/ex3/images/2026/03_03.png)  
 
 
 - Add **Thresholds** for Memory and Compute. The default value is **80%**, and you can add the thresholds that are suitable for your use case. In this exercise, we will set it as **_70%_** for both **Memory** and **Compute**.
-<br>![](/exercises/ex3/images/01_04.png)
+<br>![](/exercises/ex3/images/2026/03_04.png)
 <br> Now the ECN Advisor is **switched on**.  
 
 
 5. **Generate Recommendations**
 - Click **Generate Recommendations**.
-<br>![](/exercises/ex3/images/01_05.png)  
+<br>![](/exercises/ex3/images/2026/03_05.png)  
 
 
 - You can see a recommendation topic selected as **Elastic Compute Node**. Define the **Analysis Timeframe** that the advisor will analyze your resource usage to generate a recommendation. The time frame must be <u>*between 30 minutes and 24 hours*</u> in length. It must end <u>*at least 20 minutes before*</u> the recommendation request, and must be <u>*within the last 14 days*</u>. 
 In this exercise, you keep it as 1 day as it has been already selected by default. Click **Generate Recommendation** at the bottom.
-<br>![](/exercises/ex3/images/01_06.png)
+<br>![](/exercises/ex3/images/2026/03_06.png)
 
 
 - The ECN Advisor is **Generating** a recommendation. You can click Refresh icon at the top right side to see if the recommendation has been generated.
-<br>![](/exercises/ex3/images/01_07.png)
+<br>![](/exercises/ex3/images/2026/03_07.png)
 
 
 - Once the recommendation has been generated, you see **Available** in the **Status** column.
-<br>![](/exercises/ex3/images/01_08.png)
+<br>![](/exercises/ex3/images/2026/03_08.png)
 
 
 6. **Review Recommendation Details** 
