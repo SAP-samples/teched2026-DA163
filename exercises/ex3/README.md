@@ -139,7 +139,7 @@ With the **Automation Pilot**, you can run predefined commands or create custom 
 <br>![](/exercises/ex3/images/2026/03_ap05.png)
 
 - You can now see the imported ECN catalog in your catalog list filtering by name "ECN".
-<br>![](/exercises/ex3/images/2026/03_ap06png)
+<br>![](/exercises/ex3/images/2026/03_ap06.png)
 
 
 4. **Edit Inputs of the Catalog**
