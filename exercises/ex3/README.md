@@ -225,22 +225,19 @@ Add **cpu**, **memory**, **storage** as recommended, and add a **nodeName**. Mak
 6. **Run the workload with ECN**
 
 - Open the SQL Console.
-<br>![](/exercises/ex3/images/01_15.png)
+<br>![](/exercises/ex3/images/2026/03_35.png)
 
 - Connect to **ECN User** by running the following script.
 ```SQL
 CONNECT ECNUSER PASSWORD Ecnadvisor1;
-```
-
-- Run the following script to call the pre-defined procedure **CALL_SPIKE()** for the workload. It would take 4-5 minutes for this statement to run.
-```SQL
 CALL CALL_SPIKE();
 ```
+<br>![](/exercises/ex3/images/2026/03_36.png)
 
 - Once it's executed, go back to **Instance Overview** page and click **Compute** card.
 
 - Scroll down a bit and open **Elastic Compute Node (ecn1)** part. You can verify that the workload was run with the **ecn1** from the spike observed in the Compute graph.
-<br>![](/exercises/ex3/images/01_16.png)
+<br>![](/exercises/ex3/images/01_36.png)
 
 7. **Deprovision ECN with Commands**
 - Choose **DeprovisionHanaCloudElasticComputeNode** from the **Commands** list.
