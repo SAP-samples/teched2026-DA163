@@ -237,7 +237,7 @@ CALL CALL_SPIKE();
 - Once it's executed, go back to **Instance Overview** page and click **Compute** card.
 
 - Scroll down a bit and open **Elastic Compute Node (ecn1)** part. You can verify that the workload was run with the **ecn1** from the spike observed in the Compute graph.
-<br>![](/exercises/ex3/images/01_36.png)
+<br>![](/exercises/ex3/images/2026/03_36.png)
 
 7. **Deprovision ECN with Commands**
 - Choose **DeprovisionHanaCloudElasticComputeNode** from the **Commands** list.
