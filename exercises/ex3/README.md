@@ -241,7 +241,7 @@ CALL CALL_SPIKE();
 - Choose **DeprovisionHanaCloudElasticComputeNode** from the **Commands** list.
 <br>![](/exercises/ex3/images/2026/03_ap38.png)
 
-- Edit **statement** parameter to update the workload class name from **DisableWorkloadClass** Executor. This executor will disable the workload class but instead the commad we us is to redirect to coordinaror.
+- Edit **statement** parameter to update the workload class name from **DisableWorkloadClass** Executor. This executor will disable the workload class but instead the commad we use is to redirect to coordinaror.
 <br>![](/exercises/ex3/images/2026/03_ap39.png)
 <br>![](/exercises/ex3/images/2026/03_ap40.png)
 
