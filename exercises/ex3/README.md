@@ -251,7 +251,7 @@ CALL CALL_SPIKE();
 - The **Automation Pilot** is redirecting the workload class and deprovisioning the ECN.
 <br>![](/exercises/ex3/images/2026/03_ap42.png)
 
-- Now the evn2 ECN is successfully deprovisioned.
+- Now the evn1 ECN is successfully deprovisioned.
 
 - In **HANA Cloud Central**, you can check there is no running ECN called "ecn1" anymore.
 <br>![](/exercises/ex3/images/2026/03_ap43.png)
