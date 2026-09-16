@@ -234,39 +234,32 @@ CALL CALL_SPIKE();
 ```
 <br>![](/exercises/ex3/images/2026/03_ap36.png)
 
-- Once it's executed, go back to **Instance Overview** page and click **Compute** card.
-
-- Scroll down a bit and open **Elastic Compute Node (ecn1)** part. You can verify that the workload was run with the **ecn1** from the spike observed in the Compute graph.
-<br>![](/exercises/ex3/images/)
+- Once it's executed, go back to **Instance Overview** page and click **Compute** card. You can verify that the workload was run with the **ecn1** from the spike observed in the Compute graph.
+<br>![](/exercises/ex3/images/2026/03_ap37.png)
 
 7. **Deprovision ECN with Commands**
 - Choose **DeprovisionHanaCloudElasticComputeNode** from the **Commands** list.
-<br>![](/exercises/ex3/images/01_ap37.png)
+<br>![](/exercises/ex3/images/2026/03_ap38.png)
 
-- Edit **statement** parameter to update the workload class name from **DisableWorkloadClass** Executor. This executor will disable the workload class.
-<br>![](/exercises/ex3/images/01_ap38.png)
-<br>![](/exercises/ex3/images/01_ap39.png)
+- Edit **statement** parameter to update the workload class name from **DisableWorkloadClass** Executor. This executor will disable the workload class but instead the commad we us is to redirect to coordinaror.
+<br>![](/exercises/ex3/images/2026/03_ap39.png)
+<br>![](/exercises/ex3/images/2026/03_ap40.png)
 
 - Trigger the command. Select **HanaCloudOtherEnvironments** for **Inputs** and add the ECN name, <u>**ecn1**</u> in the **nodeName** field. And click **Trigger**.
-<br>![](/exercises/ex3/images/01_ap40.png)
+<br>![](/exercises/ex3/images/2026/03_ap41.png)
 
-- The **Automation Pilot** is disabling the workload class and deprovisioning the ECN.
-<br>![](/exercises/ex3/images/01_ap41.png)
+- The **Automation Pilot** is redirecting the workload class and deprovisioning the ECN.
+<br>![](/exercises/ex3/images/2026/03_ap42.png)
 
-- You can check the the execution is in progress from **HANA Cloud Central** as well.
-<br>![](/exercises/ex3/images/01_ap42.png)
+- Now the evn2 ECN is successfully deprovisioned.
 
-- Now the ECN is successfully deprovisioned.
-<br>![](/exercises/ex3/images/01_ap43.png)
-
-- In **HANA Cloud Central**, you can check there is no running ECN anymore.
-<br>![](/exercises/ex3/images/01_ap44.png)
+- In **HANA Cloud Central**, you can check there is no running ECN called "ecn1" anymore.
+<br>![](/exercises/ex3/images/2026/03_ap43.png)
 
 
 8. **Easily Repeat Commands with Automation Pilot**
 - To simplify repeating the provisioning and deprovisioning of ECN with the same configuration in a regular basis, you can go to **Executions** list and select the command that you have executed before and simply **Retrigger** the command.
-<br>![](/exercises/ex3/images/01_ap45.png)
-<br>![](/exercises/ex3/images/01_ap46.png)
+<br>![](/exercises/ex3/images/2026/03_ap44.png)
 
 
 ## Clean-up
@@ -276,10 +269,8 @@ CALL CALL_SPIKE();
 - Go to **Advisors** tab in the Recommendation App.
 
 - Click the three dots on the top right side and select **Switch Off**.
-<br>![](/exercises/ex3/images/01_13.png)
 
 - Choose **Remove data immediately** and click **Switch Off**.
-<br>![](/exercises/ex3/images/01_14.png)
 
 The ECN Advisor is off now and all recommendation data has been deleted.
 You can go back to **Instance Overview** page.
