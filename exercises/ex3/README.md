@@ -185,46 +185,42 @@ Your DB Password: **_Welcome1_**
 
 5. **Provision ECN with Commands**
 - Click **Commands** from the imported ECN HANA Cloud Other Environment catalog.
-<br>![](/exercises/ex3/images/01_ap23.png)
+<br>![](/exercises/ex3/images/2026/03_ap23.png)
 
 - Click **ProvisionHanaCloudElasticComputeNode** from the list of commands.
-<br>![](/exercises/ex3/images/01_ap24.png)
+<br>![](/exercises/ex3/images/2026/03_ap24.png)
 
-- Scroll down and select **EnableWorkloadClass** in the **Executors** and edit the statement and the name of the workload class which needs to be routed to the ECN. <ins>You will find which statement to put in the field in the following steps.</ins> 
-<br>![](/exercises/ex3/images/01_ap25.png)
-
-To check the workload name, go to **HANA Cloud Central** and under the **Elastic Compute Node** page, you can find **Manage Workload Classes** button. When you click it, you will see the list of **Workload Classes**.
-<br>![](/exercises/ex3/images/01_ap26.png)
-<br>![](/exercises/ex3/images/01_ap27.png)
+- Scroll down and select **EnableWorkloadClass** in the **Executors** and edit the statement and the name of the workload class which needs to be routed to the ECN (the workload class is reported in the recommendation). <ins>You will find which statement to put in the field in the following steps.</ins> 
+<br>![](/exercises/ex3/images/2026/03_ap25.png)
 
 Come back to **Automation Pilot** and edit the statement to route the selected workload class to a new ECN that will be provisioned by setting the routing location hint.
 You can copy and paste the following statement.
 ```sql
 ALTER WORKLOAD CLASS "WLC1" SET 'ROUTING LOCATION HINT'='ecn1';
 ```
-<br>![](/exercises/ex3/images/01_ap28.png)
+<br>![](/exercises/ex3/images/2026/03_ap26.png)
 
 
 - And now you are ready to **Trigger** the command. Click **Trigger** on the top right side.
-<br>![](/exercises/ex3/images/01_ap29.png)
+<br>![](/exercises/ex3/images/2026/03_ap27.png)
 
 - Select **HanaCloudOtherEnvironments** for **Inputs**.
-<br>![](/exercises/ex3/images/01_ap30.png)
+<br>![](/exercises/ex3/images/2026/03_ap28.png)
 
 - For the rest of the **Parameters**, you can take the recommended configuration that the advisor provided.
 Add **cpu**, **memory**, **storage** as recommended, and add a **nodeName**. Make sure you are using the same node name as you put in the **EnableWorkloadClass** executor earlier. And click **Trigger**.
-<br>![](/exercises/ex3/images/01_ap31.png)
-<br>![](/exercises/ex3/images/01_ap32.png)
+<br>![](/exercises/ex3/images/2026/03_ap29.png)
+<br>![](/exercises/ex3/images/2026/03_ap30.png)
 
 - Now the command is being executed and you can check the progress. It will take around 3-4 minutes.
-<br>![](/exercises/ex3/images/01_ap33.png)
+<br>![](/exercises/ex3/images/2026/03_ap31.png)
 
 - You will see **Finished** status when it's completed. It means the ECN is successfully provisioned and the selected workload class is set to be routed to the provisioned ECN.
-<br>![](/exercises/ex3/images/01_ap34.png)
+<br>![](/exercises/ex3/images/2026/03_ap32.png)
 
 - To check, you can go to **HANA Cloud Central** and in **Elastic Compute Node** page, hit the refresh button and then you see the <u>**ecn1**</u> created in the **Current Running ECNs** list. You can also click **1 workload classes** and see now the **WLC1** has a routing location set as **ecn1**.
-<br>![](/exercises/ex3/images/01_ap35.png)
-<br>![](/exercises/ex3/images/01_ap36.png)
+<br>![](/exercises/ex3/images/2026/03_ap33.png)
+<br>![](/exercises/ex3/images/2026/03_ap34.png)
 
 6. **Run the workload with ECN**
 
