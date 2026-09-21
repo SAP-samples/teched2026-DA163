@@ -303,7 +303,7 @@ SET SCHEMA PA_DEMO;
 SELECT * FROM T_SCENARIO_4 WHERE O_ORDERKEY > 1000000 AND O_ORDERKEY < 1200000;
 ```
 
-- You can see that the **Execution Elapsed Time** and **Execution CPU Time** have been reduced significantly.
+- You can see that the **Statement execute time** have been reduced significantly.
 <br>![](/exercises/ex1/images/2026/01_26_c.png)
 
 ### Scenario 5: Hash-hash partitioned table with some full partitions
