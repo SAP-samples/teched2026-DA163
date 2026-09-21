@@ -260,7 +260,7 @@ SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME
 The table has been successfully range-partitioned into 3 partitions, isolating frequently accessed recent data in a dedicated partition and improving query performance by avoiding scans of older, unused data.
 
 
-### Scenario 4 removed so far due to import from S3 bucket 
+### Scenario 4: Range partitioned table with full 'OTHERS' partition 
 
 his scenario has created a range-partitioned table with a problematic 'OTHERS' partition.
 
