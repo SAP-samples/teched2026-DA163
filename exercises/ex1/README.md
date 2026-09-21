@@ -115,7 +115,7 @@ After completing these steps you will have successfully generated five partition
 - Navigate to [SAP BTP Cockpit](https://emea.cockpit.btp.cloud.sap/cockpit/?idp=tdct3ched2.accounts.ondemand.com#/globalaccount/1976b81f-e6d9-40ac-a2d0-f4848cc7a24f/accountModel&//?section=SubaccountsSection&view=TilesView).
 - Login with your **_User Name_** and **_Password_**.
     - User Name: **_DA163-0xx@education.cloud.sap_** (xx: your index)
-    - Password: Provided in the PPT slide
+    - Password: **Acce$$teched26**
 
 2. **Access HANA Cloud Central** (Skip this step if you already have it opened.)
 - Click **Instances and Subscriptions** in the leftmost navigation panel.
