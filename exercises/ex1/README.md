@@ -95,7 +95,7 @@ BEGIN
   DECLARE i INT = 0;
   WHILE :i < 100 DO
     EXECUTE IMMEDIATE '
-      SELECT * FROM T_SCENARIO_
+      SELECT * FROM T_SCENARIO_3
       WHERE EVENT_DATE > DATE''2023-01-01''
     ';
     i = :i + 1;
