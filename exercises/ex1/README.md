@@ -262,7 +262,7 @@ The table has been successfully range-partitioned into 3 partitions, isolating f
 
 ### Scenario 4: Range partitioned table with full 'OTHERS' partition 
 
-his scenario has created a range-partitioned table with a problematic 'OTHERS' partition.
+This scenario has created a range-partitioned table with a problematic 'OTHERS' partition.
 
 1. **Review recommendation details for the table T_SCENARIO_4**
 <br>![](/exercises/ex1/images/2026/01_25.png)
