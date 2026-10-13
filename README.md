@@ -28,8 +28,8 @@ Prerequisites for each exercise are detailed in [Getting Started](exercises/ex0/
     - [Exercise 2.1 - Generate index recommendations with Index Advisor](exercises/ex2/ex2.1)
     - [Exercise 2.2 - Apply index recommendations via SQL Console](exercises/ex2/ex2.2)
 - [Exercise 3 - Elastic Compute Node Advisor and Automation Pilot](exercises/ex3/)
-    - [Exercise 3.1 - Configure ECN Advisor and generate an ECN recommendation](exercises/ex3#exercise-31-sub-exercise-1-description)
-    - [Exercise 3.2 - Provision and deprovision an ECN with SAP Automation Pilot](exercises/ex3#exercise-32-sub-exercise-2-description)  
+    - [Exercise 3.1 - Configure ECN Advisor and generate an ECN recommendation](exercises/ex3/ex3.1)
+    - [Exercise 3.2 - Provision and deprovision an ECN with SAP Automation Pilot](exercises/ex3/ex3.2)  
 
 Start the exercises [here](exercises/ex0/).
 
@@ -49,4 +49,4 @@ Please read the [SAP Open Source Code of Conduct](https://github.com/SAP-samples
 Support for the content in this repository is available during the actual time of the online session for which this content has been designed. Otherwise, you may request support via the [Issues](../../issues) tab.
 
 ## License
-Copyright (c) 2026 SAP SE or an SAP affiliate company and <teched2026-DA163> contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP/teched2026-DA163).
+Copyright (c) 2026 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
