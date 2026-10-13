@@ -184,5 +184,5 @@ You can find an asset about Partition Advisor below.
 - [Partition Advisor Help Documentation](https://help.sap.com/docs/hana-cloud-database/sap-hana-cloud-sap-hana-database-administration-guide/about-partition-advisor?locale=en-US)
 
 
-Continue to - [Exercise 2 - Index Advisor](../ex2/README.md)
+Continue to - [Exercise 2 - Index Advisor](../../ex2/README.md)
 
