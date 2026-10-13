@@ -22,8 +22,8 @@ Prerequisites for each exercise are detailed in [Getting Started](exercises/ex0/
 
 - [Getting Started](exercises/ex0/)
 - [Exercise 1 - Partition Advisor](exercises/ex1/)
-    - [Exercise 1.1 - Generate partitioning recommendations with Partition Advisor](exercises/ex1#exercise-11-sub-exercise-1-description)
-    - [Exercise 1.2 - Apply partitioning recommendations from Recommendation App](exercises/ex1#exercise-12-sub-exercise-2-description)
+    - [Exercise 1.1 - Generate partitioning recommendations with Partition Advisor](exercises/ex1/ex1.1)
+    - [Exercise 1.2 - Apply partitioning recommendations from Recommendation App](exercises/ex1/ex1.2)
 - [Exercise 2 - Index Advisor](exercises/ex2/)
     - [Exercise 2.1 - Generate index recommendations with Index Advisor](exercises/ex2#exercise-21-sub-exercise-1-description)
     - [Exercise 2.2 - Apply index recommendations via SQL Console](exercises/ex2#exercise-22-sub-exercise-2-description)
