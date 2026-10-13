@@ -37,7 +37,7 @@ There is no specific configuration you need to do to switch on the Index Advisor
 - Once the analysis is done and the advisor has identified tables that would benefit from creating or dropping index, there will be available recommendations generated. For this exercise, there are four recommendations generated. Two of them are create index recommendations and the other two are drop index recommendations.
 <br>![](/exercises/ex2/images/2026/02_05.png)
 
-Continue to - [Exercise 2.2 - Apply index recommendations via SQL Console](ex2.2/README.md)
+Continue to - [Exercise 2.2 - Apply index recommendations via SQL Console](../ex2.2/README.md)
 
 
 
