@@ -105,5 +105,5 @@ END;
 
 Now you are ready with all the datasets. 
 
-Continue to - [Exercise 1.1 - Generate partitioning recommendations with Partition Advisor](../ex1.1/README.md)
+Continue to - [Exercise 1.1 - Generate partitioning recommendations with Partition Advisor](ex1.1/README.md)
 
