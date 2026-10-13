@@ -22,7 +22,7 @@ The ECN Advisor will be continuously enhanced with more advanced automation and 
 After completing these steps you will have successfully generated an ECN recommendation for your HANA Cloud instance from HANA Cloud Central.
 
 1. **Open SAP BTP Cockpit**
-- Navigate to [SAP BTP Cockpit](https://emea.cockpit.btp.cloud.sap/cockpit/?idp=tdct3ched2.accounts.ondemand.com#/globalaccount/1976b81f-e6d9-40ac-a2d0-f4848cc7a24f/accountModel&//?section=SubaccountsSection&view=TilesView).
+- Navigate to [SAP BTP Cockpit](https://emea.cockpit.btp.cloud.sap/cockpit/?idp=tdct3ched2.accounts.ondemand.com).
 - Login with your **_User Name_** and **_Password_**.
     - User Name: **_da263-0xx@education.cloud.sap_** (xx: your index)
     - Password: **_Provided in the PPT slide_**
