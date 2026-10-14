@@ -59,7 +59,7 @@ SELECT TABLE_NAME, PARTITION_DEFINITION FROM PARTITIONED_TABLES WHERE TABLE_NAME
 ```
 
 3. **Apply the recommendation**
-- Click **Apply** in the recommendation detail page.
+- Click **Apply** in the recommendation detail page, in the same way you did for scenari 1.
 <br>![](/exercises/ex1/images/2026/01_21.png)
 
 4. **Validate partitioning implementation**

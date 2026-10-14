@@ -108,7 +108,7 @@ SELECT
     CASE MOD(ROW_NUMBER() OVER(), 3)
         WHEN 0 THEN 'Coming Soon'
         WHEN 1 THEN 'Now Playing'
-        ELSE 'Rating Pending'Continue to - [Exercise 3 - Elastic Compute Node Advisor and SAP Automation Pilot](../ex2/README.md)
+        ELSE 'Rating Pending'
     END AS STATUS
 FROM SERIES_GENERATE_INTEGER(1, 1, 101);
 
