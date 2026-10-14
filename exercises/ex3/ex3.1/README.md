@@ -5,7 +5,7 @@ After completing these steps you will have successfully generated an ECN recomme
 1. **Open SAP BTP Cockpit**
 - Navigate to [SAP BTP Cockpit](https://emea.cockpit.btp.cloud.sap/cockpit/?idp=tdct3ched2.accounts.ondemand.com).
 - Login with your **_User Name_** and **_Password_**.
-    - User Name: **_da263-0xx@education.cloud.sap_** (xx: your index)
+    - User Name: **_da163-0xx@education.cloud.sap_** (xx: your index)
     - Password: **_Provided in the PPT slide_**
 
 
