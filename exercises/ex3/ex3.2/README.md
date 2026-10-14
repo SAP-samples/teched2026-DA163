@@ -117,6 +117,7 @@ ALTER WORKLOAD CLASS "WLC1" SET 'ROUTING LOCATION HINT'='ecn1';
 Add **cpu**, **memory**, **storage** as recommended, and add a **nodeName**. Make sure you are using the same node name as you put in the **EnableWorkloadClass** executor earlier. And click **Trigger**.
 
 **Note:** we have observed the advisor generating ECN recommendations with less capacity than the ones appearing in the previous exercise for this particular very simple case, if that happens please fill in the properties for the node with at least memory 32 GB, 4 vCUPs and 120 GV space.
+
 <br>![](/exercises/ex3/images/2026/03_ap29.png)
 <br>![](/exercises/ex3/images/2026/03_ap30.png)
 
