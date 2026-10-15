@@ -56,9 +56,11 @@ With the **Automation Pilot**, you can run predefined commands or create custom 
 <br>![](/exercises/ex3/images/2026/03_ap08.png)
 
   You have to modify several keys in the 2 different imputs.
+  
   NOTE: **serviceKey** has to be modified twice because it appears in the 2 imputs.
 
-Click **HanaCloudOtherEnvironments**.
+  Click **HanaCloudOtherEnvironments**.
+  
 - You can see the list of **Keys** in **Content** field. Edit each key by clicking a Pencil icon.
 <br>![](/exercises/ex3/images/2026/03_ap09.png)
 
