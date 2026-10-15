@@ -52,9 +52,13 @@ With the **Automation Pilot**, you can run predefined commands or create custom 
 - Click **Inputs** in the catalog.
 <br>![](/exercises/ex3/images/2026/03_ap07.png)
 
-- Click **HanaCloudOtherEnvironments**.
+- You will see 2 imputs for the new catalog, namely **HanaCloudOtherEnvironments** and **HanaCloudServiceKey**.
 <br>![](/exercises/ex3/images/2026/03_ap08.png)
 
+  You have to modify several keys in the 2 different imputs.
+  NOTE: **serviceKey** has to be modified twice because it appears in the 2 imputs.
+
+Click **HanaCloudOtherEnvironments**.
 - You can see the list of **Keys** in **Content** field. Edit each key by clicking a Pencil icon.
 <br>![](/exercises/ex3/images/2026/03_ap09.png)
 
